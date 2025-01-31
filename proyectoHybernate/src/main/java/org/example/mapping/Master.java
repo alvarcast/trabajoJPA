@@ -2,13 +2,15 @@ package org.example.mapping;
 
 public class Master {
 
-    BodyList bodyList;
-    InfList infList;
-    ReplikaList replikaList;
+    private BodyList bodyList;
+    private InfList infList;
+    private AssignedReplikaList assignedReplikaList;
+    private ReplikaList replikaList;
 
-    public Master(BodyList bodyList, InfList infList, ReplikaList replikaList) {
+    public Master(BodyList bodyList, InfList infList, AssignedReplikaList assignedReplikaList , ReplikaList replikaList) {
         this.bodyList = bodyList;
         this.infList = infList;
+        this.assignedReplikaList = assignedReplikaList;
         this.replikaList = replikaList;
     }
 
@@ -28,6 +30,14 @@ public class Master {
         this.infList = infList;
     }
 
+    public AssignedReplikaList getAssignedReplikaList() {
+        return assignedReplikaList;
+    }
+
+    public void setAssignedReplikaList(AssignedReplikaList assignedReplikaList) {
+        this.assignedReplikaList = assignedReplikaList;
+    }
+
     public ReplikaList getReplikaList() {
         return replikaList;
     }
@@ -35,27 +45,4 @@ public class Master {
     public void setReplikaList(ReplikaList replikaList) {
         this.replikaList = replikaList;
     }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("=== Master Data ===\n");
-
-        sb.append("\n🌌 Celestial Bodies:\n");
-        for (Body b : bodyList.getBodyList()) {
-            sb.append(" - ").append(b).append("\n");
-        }
-
-        sb.append("\n🏗️ Infrastructure:\n");
-        for (Infrastructure i : infList.getBodyList()) {
-            sb.append(" - ").append(i).append("\n");
-        }
-
-        sb.append("\n🤖 Replika Units:\n");
-        for (Replika r : replikaList.getBodyList()) {
-            sb.append(" - ").append(r).append("\n");
-        }
-
-        return sb.toString();
-    }
-
 }

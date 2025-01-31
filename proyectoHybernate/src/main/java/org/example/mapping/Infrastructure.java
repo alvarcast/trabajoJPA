@@ -71,15 +71,4 @@ public class Infrastructure {
     public void setFunction(String function) {
         this.function = function;
     }
-
-    @Override
-    public String toString() {
-        return "Infrastructure{" +
-                "id=" + id +
-                ", body_id=" + body_id +
-                ", name='" + name + '\'' +
-                ", info='" + info + '\'' +
-                ", function='" + function + '\'' +
-                '}';
-    }
 }

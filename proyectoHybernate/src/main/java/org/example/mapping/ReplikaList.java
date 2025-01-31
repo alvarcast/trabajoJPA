@@ -12,11 +12,11 @@ public class ReplikaList {
         this.replikaList = replikaList;
     }
 
-    public ArrayList<Replika> getBodyList() {
+    public ArrayList<Replika> getReplikaList() {
         return replikaList;
     }
 
-    public void setBodyList(ArrayList<Replika> replikaList) {
+    public void setReplikaList(ArrayList<Replika> replikaList) {
         this.replikaList = replikaList;
     }
 

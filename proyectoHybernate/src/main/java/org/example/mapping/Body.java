@@ -59,14 +59,4 @@ public class Body {
     public void setAllegiance(String allegiance) {
         this.allegiance = allegiance;
     }
-
-    @Override
-    public String toString() {
-        return "Body{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", info='" + info + '\'' +
-                ", allegiance='" + allegiance + '\'' +
-                '}';
-    }
 }

@@ -1,6 +1,6 @@
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
         <!-- Configuración de la base de datos -->
@@ -19,6 +19,7 @@
         <!-- Mapeo de clases -->
         <mapping class="org.example.mapping.Body"/>
         <mapping class="org.example.mapping.Infrastructure"/>
+        <mapping class="org.example.mapping.AssignedReplika"/>
         <mapping class="org.example.mapping.Replika"/>
     </session-factory>
 </hibernate-configuration>

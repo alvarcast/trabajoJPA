@@ -7,9 +7,7 @@ public class Program {
         try {
             HibernateSession.getSession();
 
-            Master master = Transactions.read();
-            String output = master.toString();
-            System.out.println(output);
+            Menu.menu();
 
             HibernateSession.closeSession();
         } catch (Exception e) {

@@ -107,18 +107,4 @@ public class Replika {
     public void setHeight(int height) {
         this.height = height;
     }
-
-    @Override
-    public String toString() {
-        return "Replika{" +
-                "id=" + id +
-                ", acronym='" + acronym + '\'' +
-                ", name='" + name + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", description='" + description + '\'' +
-                ", occupation='" + occupation + '\'' +
-                ", gender='" + gender + '\'' +
-                ", height=" + height +
-                '}';
-    }
 }

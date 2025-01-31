@@ -7,7 +7,7 @@ public class HibernateSession {
     private static final SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
     private static Session session;
 
-    private HibernateSession() {} // Evitar instanciación
+    private HibernateSession() {}
 
     public static synchronized Session getSession() {
         if (session == null || !session.isOpen()) {

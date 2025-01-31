@@ -12,11 +12,11 @@ public class InfList {
         this.infrastructureList = infrastructureList;
     }
 
-    public ArrayList<Infrastructure> getBodyList() {
+    public ArrayList<Infrastructure> getInfrastructureList() {
         return infrastructureList;
     }
 
-    public void setBodyList(ArrayList<Infrastructure> infrastructureList) {
+    public void setInfrastructureList(ArrayList<Infrastructure> infrastructureList) {
         this.infrastructureList = infrastructureList;
     }
 

@@ -7,18 +7,20 @@ import java.util.ArrayList;
 
 public class Transactions {
 
-    private static final Session session = HibernateSession.getSession();
+    private static final Session sesh = HibernateSession.getSession();
 
     public static Master read() {
         BodyList bodyList = new BodyList();
         InfList infList = new InfList();
+        AssignedReplikaList assignedReplikaList = new AssignedReplikaList();
         ReplikaList replikaList = new ReplikaList();
 
-        bodyList.setBodyList((ArrayList<Body>) session.createQuery("FROM Body", Body.class).list());
-        infList.setBodyList((ArrayList<Infrastructure>) session.createQuery("FROM Infrastructure", Infrastructure.class).list());
-        replikaList.setBodyList((ArrayList<Replika>) session.createQuery("FROM Replika", Replika.class).list());
+        bodyList.setBodyList((ArrayList<Body>) sesh.createQuery("FROM Body", Body.class).list());
+        infList.setInfrastructureList((ArrayList<Infrastructure>) sesh.createQuery("FROM Infrastructure", Infrastructure.class).list());
+        assignedReplikaList.setAssignedReplikaList((ArrayList<AssignedReplika>) sesh.createQuery("FROM AssignedReplika", AssignedReplika.class).list());
+        replikaList.setReplikaList((ArrayList<Replika>) sesh.createQuery("FROM Replika", Replika.class).list());
 
-        return new Master(bodyList, infList, replikaList);
+        return new Master(bodyList, infList, assignedReplikaList , replikaList);
     }
 
     public static void insert() {
