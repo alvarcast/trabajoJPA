@@ -2,6 +2,7 @@ package org.example.util;
 
 import org.example.mapping.*;
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.util.ArrayList;
 
@@ -23,38 +24,61 @@ public class Transactions {
         return new Master(bodyList, infList, assignedReplikaList , replikaList);
     }
 
-    public static void insert() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        // Transaction transaction = null;
+    public static void create(ArrayList<Object> items) {
+        Transaction transaction = null;
 
         try {
-            // transaction = session.beginTransaction();
+            for (Object object : items) {
+                transaction = sesh.beginTransaction();
+                sesh.save(object);
+                transaction.commit();
+            }
 
-            // Crear entidades
-            Body body = new Body();
-            Infrastructure infrastructure = new Infrastructure();
-            Replika replika = new Replika();
-
-            session.save(body);
-            session.save(infrastructure);
-            session.save(replika);
-
-            // Consultar entidades
-            Body bodyConsultado = session.get(Body.class, body.getId());
-            System.out.println(bodyConsultado);
-
-            Infrastructure infConsultada = session.get(Infrastructure.class, infrastructure.getId());
-            System.out.println(infConsultada);
-
-            Replika replikaConsultada = session.get(Replika.class, replika.getId());
-            System.out.println(replikaConsultada);
-
-            // transaction.commit();
+            System.out.println("\n\033[1;32mEntity/s inserted correctly\033[0m");
         } catch (Exception e) {
-            // if (transaction != null) transaction.rollback();
-            e.printStackTrace();
-        } finally {
-            session.close();
+            if (transaction != null) transaction.rollback();
+            System.err.println("Error creating entity: " + e.getMessage());
+        }
+    }
+
+    public static void update(Object object) {
+        Transaction transaction = null;
+
+        try {
+            transaction = sesh.beginTransaction();
+            sesh.update(object);
+            transaction.commit();
+
+            System.out.println("\n\033[1;32mEntity updated correctly\033[0m");
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            System.err.println("Error updating entity: " + e.getMessage());
+        }
+    }
+
+    public static void delete(Object object) {
+        Transaction transaction = null;
+
+        try {
+            transaction = sesh.beginTransaction();
+            sesh.delete(object);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            System.err.println("Error deleting entity: " + e.getMessage());
+        }
+    }
+
+    public static void find(Object object, String search) {
+        try {
+            if (sesh.get(Object.class, search) != null) {
+                System.out.println("Entity found: " + object);
+            } else {
+                System.out.println("Entity not found with query: " + "'" + search + "'");
+            }
+        } catch (Exception e) {
+            System.err.println("Error searching for entity: " + e.getMessage());
         }
     }
 }
+

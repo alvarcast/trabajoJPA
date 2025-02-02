@@ -16,6 +16,13 @@ public class AssignedReplika {
     @Column(name = "rel_replika_id")
     private int replika_id;
 
+    public AssignedReplika() {}
+
+    public AssignedReplika(int inf_id, int replika_id) {
+        this.inf_id = inf_id;
+        this.replika_id = replika_id;
+    }
+
     public int getId() {
         return id;
     }

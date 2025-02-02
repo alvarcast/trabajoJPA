@@ -33,8 +33,7 @@ public class Replika {
 
     public Replika() {}
 
-    public Replika(int id, String acronym, String name, String nickname, String description, String occupation, String gender, int height) {
-        this.id = id;
+    public Replika(String acronym, String name, String nickname, String description, String occupation, String gender, int height) {
         this.acronym = acronym;
         this.name = name;
         this.nickname = nickname;

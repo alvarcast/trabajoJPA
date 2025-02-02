@@ -21,8 +21,7 @@ public class Body {
 
     public Body() {}
 
-    public Body(int id, String name, String info, String allegiance) {
-        this.id = id;
+    public Body(String name, String info, String allegiance) {
         this.name = name;
         this.info = info;
         this.allegiance = allegiance;

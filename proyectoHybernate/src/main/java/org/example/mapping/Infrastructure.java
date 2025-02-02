@@ -24,8 +24,7 @@ public class Infrastructure {
 
     public Infrastructure() {}
 
-    public Infrastructure(int id, int body_id, String name, String info, String function) {
-        this.id = id;
+    public Infrastructure(int body_id, String name, String info, String function) {
         this.body_id = body_id;
         this.name = name;
         this.info = info;
